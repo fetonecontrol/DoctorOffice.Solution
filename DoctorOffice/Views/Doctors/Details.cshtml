@@ -1,4 +1,4 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 @model DoctorOffice.Models.Doctor;
@@ -17,11 +17,11 @@ else
   <ul>
     @foreach(var join in Model.Patients)
     {
-      <li>@join.Patient.Description</li>
+      <li>@join.Patient.Name</li>
     }
   </ul>
 }
 
 <p>@Html.ActionLink("Back to Doctors", "Index")</p>
 <p>@Html.ActionLink("Edit Doctor", "Edit", new { id = Model.DoctorId })</p>
-<p>@Html.ActionLink("Delete Doctor", "Delete", new { id = Model.DoctorId })</p>
+<p>@Html.ActionLink("Delete Doctor", "Delete", new { id = Model.DoctorId })</p> *@

@@ -14,7 +14,7 @@
 
 @foreach (Patient patient in Model)
 {
-  <li>@Html.ActionLink($"{patient.Description}", "Details", new { id = patient.PatientId })</li>
+  <li>@Html.ActionLink($"{patient.Name}", "Details", new { id = patient.PatientId })</li>
 }
 
 <p>@Html.ActionLink("Add new Patient", "Create")</p>
