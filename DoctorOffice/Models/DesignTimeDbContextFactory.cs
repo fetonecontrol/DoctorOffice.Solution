@@ -5,10 +5,10 @@ using System.IO;
 
 namespace DoctorOffice.Models
 {
-  public class DoctorOfficeContextFactory : IdesignTimeDbContextFactory<DoctorOfficeContext>
+  public class DoctorOfficeContextFactory : IDesignTimeDbContextFactory<DoctorOfficeContext>
   {
 
-    DoctorOfficeContext IdesignTimeDbContextFactory<DoctorOfficeContext>.CreateDbContext(string[] args)
+    DoctorOfficeContext IDesignTimeDbContextFactory<DoctorOfficeContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
