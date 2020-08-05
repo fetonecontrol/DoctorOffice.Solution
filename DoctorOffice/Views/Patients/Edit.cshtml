@@ -8,12 +8,15 @@
 
 <h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Doctors", FormMethod.Get))
 {
     @Html.HiddenFor(model => model.PatientId)
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
+
+    @Html.Label("Select Specialty")
+    @Html.DropDownList("SpecialtyId")
 
     @Html.Label("Select Doctor")
     @Html.DropDownList("DoctorId")
@@ -22,3 +25,19 @@
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
+
+  @* @using (Html.BeginForm("Index", "Artists", FormMethod.Get))
+  {
+    <p>Search Artist: @Html.TextBox("firstName")</p>
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+  }  *@
+
+@* public ActionResult Index(string firstName = "")
+    {
+      var model = _db.DoctorSpecialty;
+      if (!string.IsNullOrEmpty(firstName))
+      {
+        return View(model.AsQueryable().Where(doctor => doctor.Specialties.Contains(SpecialtyId)).ToList());
+      }
+      return View(model.ToList());
+    } *@

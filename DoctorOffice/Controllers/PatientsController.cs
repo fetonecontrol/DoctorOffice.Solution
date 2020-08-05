@@ -48,12 +48,22 @@ namespace DoctorOffice.Controllers
       return View(thisPatient);
     }
 
-    public ActionResult Edit(int id)
+    public ActionResult Edit(int id, int specialtyId)
     {
       var thisPatient = _db.Patients.FirstOrDefault(patients => patients.PatientId == id);
-      ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "Name");
+      ViewBag.SpecialtyId = new SelectList(_db.Specialties, "SpecialtyId", "Name");
+      // ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "Name");
+      List<string> doctorList = new List<string>(); 
+      var model = _db.Doctors;
+      if (specialtyId == model.Doctors.Specialties.SpecialtyId)
+      {
+        doctorList.Add(model.Name);
+        ViewBag.DoctorId =  new SelectList(doctorList, "DoctorId", "Name");
+      }
       return View(thisPatient);
     }
+      // return View(thisPatient);
+    // }
 
     [HttpPost]
     public ActionResult Edit(Patient patient, int DoctorId)
