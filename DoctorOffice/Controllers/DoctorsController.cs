@@ -45,19 +45,26 @@ namespace DoctorOffice.Controllers
       var thisDoctor = _db.Doctors
       .Include(doctor => doctor.Patients)
       .ThenInclude(join => join.Patient)
+      .Include(doctor => doctor.Specialties)
+      .ThenInclude(join => join.Specialty)
       .FirstOrDefault(doctor => doctor.DoctorId == id);
       return View(thisDoctor);
     }
 
     public ActionResult Edit(int id)
     {
+      ViewBag.SpecialtyId = new SelectList(_db.Specialties, "SpecialtyId", "Name");
       var thisDoctor = _db.Doctors.FirstOrDefault(doctor => doctor.DoctorId == id);
       return View(thisDoctor);
     }
 
     [HttpPost]
-    public ActionResult Edit(Doctor doctor)
+    public ActionResult Edit(Doctor doctor, int SpecialtyId)
     {
+      if (SpecialtyId != 0)
+      {
+        _db.DoctorSpecialty.Add(new DoctorSpecialty() { SpecialtyId = SpecialtyId, DoctorId = doctor.DoctorId });
+      }
       _db.Entry(doctor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");

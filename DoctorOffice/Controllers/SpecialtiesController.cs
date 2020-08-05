@@ -23,13 +23,18 @@ namespace DoctorOffice.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "Name");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Specialty specialty)
+    public ActionResult Create(Specialty specialty, int DoctorId)
     {
       _db.Specialties.Add(specialty);
+      if (DoctorId != 0)
+      {
+        _db.DoctorSpecialty.Add(new DoctorSpecialty() { DoctorId = DoctorId, SpecialtyId = specialty.SpecialtyId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

@@ -7,6 +7,21 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
+@if(@Model.Specialties.Count == 0)
+{
+  <p>This doctor isn't all that special</p>
+}
+else
+{
+  <h4>This doctor's specialties include:</h4>
+  <ul>
+    @foreach(var join in Model.Specialties)
+    {
+      <li>@join.Specialty.Name</li>
+    }
+  </ul>
+}
+
 @if(@Model.Patients.Count == 0)
 {
   <p>This Doctor does not contain any Patients</p>
