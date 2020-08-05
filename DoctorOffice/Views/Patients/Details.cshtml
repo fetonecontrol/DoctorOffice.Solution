@@ -1,4 +1,4 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 @model DoctorOffice.Models.Patient
@@ -28,4 +28,4 @@ else
 <p>@Html.ActionLink("Add a Doctor", "AddDoctor", new { id = Model.PatientId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Patient", "Edit", new { id = Model.PatientId })</p>
-<p>@Html.ActionLink("Delete Patient", "Delete", new { id = Model.PatientId })</p> *@
+<p>@Html.ActionLink("Delete Patient", "Delete", new { id = Model.PatientId })</p>

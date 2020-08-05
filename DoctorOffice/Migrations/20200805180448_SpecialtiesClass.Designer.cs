@@ -2,14 +2,16 @@
 using DoctorOffice.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoctorOffice.Migrations
 {
     [DbContext(typeof(DoctorOfficeContext))]
-    partial class DoctorOfficeContextModelSnapshot : ModelSnapshot
+    [Migration("20200805180448_SpecialtiesClass")]
+    partial class SpecialtiesClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

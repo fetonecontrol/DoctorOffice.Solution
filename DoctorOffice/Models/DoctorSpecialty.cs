@@ -1,6 +1,6 @@
 namespace DoctorOffice.Models
 {
-  public class DoctorPatient
+  public class DoctorSpecialty
   {
     public int DoctorSpecialtyId { get; set; }
     public int DoctorId { get; set; }
