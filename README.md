@@ -2,7 +2,7 @@
 
 #### _Doctors Office, 7/16/2020_
 
-#### By _**Frederick Ernes @ Jeff Kimt**_
+#### By _**Frederick Ernes @ Jeff Kim**_
 
 ## Description
 
@@ -12,7 +12,7 @@ _Establish many to many relationships, and many to one relatioships via c# and M
 
 | Spec | Input | Output |
 | :-------------      | :------------- | :------------- |
-| ** 1. Allow full CRUD for doctors, patients and specialies | Doctor: "John" Patient: "Fred" Specialty of doctor: "radiology" |
+| ** 1. Allow full CRUD for doctors, patients and specialies | Doctor: "John" Patient: "Fred" Specialty of doctor: "radiology" | John has a specialty of Radiology, and has a specialty in Radiology |
 
 ## Setup/Installation Requirements
 
@@ -21,6 +21,8 @@ _Establish many to many relationships, and many to one relatioships via c# and M
 * _Run $ dotnet restore to download all dev dependencies_
 * _Run $ dotnet build to build project_
 * _Run $ dotnet run to run project_
+* _Run $ dotnet ef migrations add Initial_
+* _Run $ dotnet ef database update_
 
 
 ## Known Bugs
